@@ -7,13 +7,12 @@ import TypewriterEffect from './hooks/typewriterEffect';
 const CodeEditorSimulator = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-switch tabs every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex(prevIndex => (prevIndex + 1) % codeSnippets.length);
     }, 5000); // 5000ms
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); 
   }, []);
 
   const currentSnippet = codeSnippets[activeIndex];
